@@ -11,8 +11,8 @@ public class JavaPostgreSql {
 
     public static void writeToDatabase(String username, String userEmail, String userPassword){
         String url = "jdbc:postgresql://localhost:5432/tododb";
-        String user = "postgres";
-        String password = "m=0552564107";
+        String user = ""; \\ here we put the username of the database
+        String password = ""; \\ here we put the password to the database 
 
         String name = username;
         String Email = userEmail;
