@@ -1,42 +1,25 @@
 package com.example.test123;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 
-import static com.example.test123.JavaPostgreSql.writeToDatabase;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class SignUp {
-    @FXML
-    private Button submitButton;
 
     @FXML
-    private TextField email;
+    private TextField username;
     @FXML
     private TextField name;
     @FXML
-    private PasswordField password;
+    private PasswordField userPassword;
+    @FXML
+    private Button SignUpButton;
 
-    public void getData(ActionEvent event) {
-        //System.out.println(name.getText());
-        //System.out.println(email.getText());
-        //System.out.println(password.getText());
-        writeToDatabase( this.name.getText(),this.email.getText(),this.password.getText());
-
-
+    public void SignUpButtonOnAction(ActionEvent event){
+        DBUtils.writeToDatabase(username.getText(),name.getText(),userPassword.getText());
+        Main m = new Main();
+        m.showLoginScene();
     }
-
-
-
-    /*
-    public void getData(ActionEvent event) {
-        System.out.println(name.getText());
-        System.out.println(email.getText());
-        System.out.println(password.getText());
-        writeToDatabase( name.getText(),email.getText(),password.getText());
-
-    }
-     */
 }
