@@ -12,14 +12,47 @@ public class Main extends Application {
     private static Stage stg;
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) {
+        this.stg = primaryStage;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("sample.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        primaryStage.setTitle("NewApp");
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
+    public void showLoginScene(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Sign-in.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            stg.setTitle("NewApp");
+            stg.setScene(scene);
+            stg.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    public void showSignUpScene() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("SignUp.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            stg.setTitle("NewApp");
+            stg.setScene(scene);
+            stg.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showHomeScene(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Sign-in.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            HomePage home = new HomePage();
+            home.populationPieChart();
+            stg.setTitle("NewApp");
+            stg.setScene(scene);
+            stg.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+
 
 
     public static void main(String[] args) {
