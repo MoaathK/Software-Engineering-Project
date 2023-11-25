@@ -4,59 +4,58 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test123.SignIn">
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #233AD1;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="215.0" fitWidth="269.0" layoutX="14.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../Wallpaper/wallpaperflare.com_wallpaper.jpg" />
-               </image>
-            </ImageView>
-            <Label layoutX="416.0" layoutY="92.0" text=" Sign-in Page">
+            <Label layoutX="56.0" layoutY="118.0" prefHeight="40.0" prefWidth="134.0" text="Where" textFill="#dadada">
                <font>
-                  <Font size="16.0" />
+                  <Font name="System Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="300.0" layoutY="142.0" text="Username">
+            <Label layoutX="83.0" layoutY="169.0" prefHeight="40.0" prefWidth="81.0" text="It" textFill="WHITE">
                <font>
-                  <Font size="16.0" />
+                  <Font name="System Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="300.0" layoutY="181.0" text="Password">
+            <Label layoutX="68.0" layoutY="209.0" text="Goes" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="username" layoutX="389.0" layoutY="142.0" />
-            <PasswordField fx:id="userPassowrd" layoutX="390.0" layoutY="181.0" />
-            <Button fx:id="SignInButton" layoutX="427.0" layoutY="245.0" mnemonicParsing="false" onAction="#signInOnAction" text="Sign-In">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <Button fx:id="SignUpButton" layoutX="429.0" layoutY="335.0" mnemonicParsing="false" onAction="#signUpOnAction" text="Sign-Up">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Label layoutX="428.0" layoutY="295.0" text="Not a user?" textFill="RED">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="wrongEnter" layoutX="449.0" layoutY="219.0" textFill="#f20000">
-               <font>
-                  <Font size="16.0" />
+                  <Font name="System Bold" size="28.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-   </center>
+   </left>
+   <right>
+      <AnchorPane prefHeight="382.0" prefWidth="320.0" style="-fx-background-color: #FBF7FF;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="128.0" layoutY="58.0" text="Login" textFill="#0084f9">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="149.0" text="Username">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="200.0" text="Password">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameField" layoutX="150.0" layoutY="152.0" promptText="Username" />
+            <PasswordField fx:id="passwordField" layoutX="150.0" layoutY="203.0" promptText="Password" />
+            <Button fx:id="loginButton" layoutX="182.0" layoutY="262.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="124.0" style="-fx-background-color: #233AD1;" text="Login" textFill="WHITE" />
+            <Button fx:id="logincancel" layoutX="25.0" layoutY="262.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="124.0" style="-fx-background-color: #233AD1;" text="Cancel" textFill="WHITE" />
+            <Label layoutX="92.0" layoutY="325.0" prefHeight="24.0" prefWidth="73.0" text="New user?" textFill="#0084f9" />
+            <Button fx:id="r_button" layoutX="165.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: transperent;" text="Signin" textFill="#0084f9" underline="true" />
+         </children>
+      </AnchorPane>
+   </right>
 </BorderPane>

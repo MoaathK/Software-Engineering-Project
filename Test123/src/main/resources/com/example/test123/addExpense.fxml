@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="420.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test123.AddExpense">
+   <children>
+      <Label alignment="CENTER" layoutX="-1.0" layoutY="-2.0" prefHeight="78.0" prefWidth="520.0" style="-fx-background-color: #233AD1;" text="Add Expense" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="45.0" layoutY="144.0" prefHeight="18.0" prefWidth="130.0" text="Amount">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="45.0" layoutY="282.0" prefHeight="18.0" prefWidth="130.0" text="Date">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="45.0" layoutY="211.0" prefHeight="18.0" prefWidth="130.0" text="Caregory">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField layoutX="199.0" layoutY="144.0" prefHeight="25.0" prefWidth="219.0" promptText="Riyals" />
+      <ComboBox layoutX="199.0" layoutY="211.0" prefHeight="25.0" prefWidth="219.0" promptText="Select any category" />
+      <DatePicker layoutX="196.0" layoutY="282.0" prefHeight="25.0" prefWidth="219.0" />
+      <Button layoutX="276.0" layoutY="346.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #233AD1;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="134.0" layoutY="346.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #233AD1;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
