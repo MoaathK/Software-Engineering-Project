@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test123.HomePage">
    <left>
       <AnchorPane prefHeight="379.0" prefWidth="186.0" style="-fx-background-color: #233AD1;" BorderPane.alignment="CENTER">
          <children>
@@ -36,32 +36,32 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <Button layoutX="14.0" layoutY="83.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #118C99;" text="Show Expense" textFill="WHITE">
+            <Button layoutX="14.0" layoutY="83.0" mnemonicParsing="false" onAction="#showExpenseOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #118C99;" text="Show Expense" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="137.0" layoutY="83.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #118C99;" text="Show Income" textFill="WHITE">
+            <Button layoutX="137.0" layoutY="83.0" mnemonicParsing="false" onAction="#showIncomeOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #118C99;" text="Show Income" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="213.0" layoutY="162.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #118C99;" text="Add Income" textFill="WHITE">
+            <Button layoutX="213.0" layoutY="162.0" mnemonicParsing="false" onAction="#addIncomeOnAction" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #118C99;" text="Add Income" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="265.0" layoutY="83.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #118C99;" text="History" textFill="WHITE">
+            <Button layoutX="265.0" layoutY="83.0" mnemonicParsing="false" onAction="#historyButtonOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #118C99;" text="History" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="69.0" layoutY="162.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #118C99;" text="Add Expense" textFill="WHITE">
+            <Button layoutX="69.0" layoutY="162.0" mnemonicParsing="false" onAction="#addExpenseOnAction" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #118C99;" text="Add Expense" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="285.0" layoutY="321.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="97.0" style="-fx-background-color: #BC000A;" text="Logout" textFill="WHITE">
+            <Button fx:id="logoutButton" layoutX="285.0" layoutY="321.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="44.0" prefWidth="97.0" style="-fx-background-color: #BC000A;" text="Logout" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

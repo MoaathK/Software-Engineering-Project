@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test123.IncomeChart">
+   <children>
+      <Label alignment="CENTER" layoutX="-2.0" layoutY="-9.0" prefHeight="80.0" prefWidth="606.0" text="TRACK YOUR EXPENSE" textFill="#233ad1">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Pane layoutX="32.0" layoutY="59.0" prefHeight="295.0" prefWidth="556.0">
+         <children>
+            <PieChart prefHeight="295.0" prefWidth="556.0" />
+         </children>
+      </Pane>
+      <Button layoutX="253.0" layoutY="361.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #233AD1;" text="Back" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

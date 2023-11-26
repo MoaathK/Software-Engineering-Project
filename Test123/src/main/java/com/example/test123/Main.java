@@ -9,52 +9,18 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
-    private static Stage stg;
-
     @Override
     public void start(Stage primaryStage) {
-        this.stg = primaryStage;
-
-    }
-    public void showLoginScene(){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Sign-in.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-            stg.setTitle("NewApp");
-            stg.setScene(scene);
-            stg.show();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-    public void showSignUpScene() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("SignUp.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-            stg.setTitle("NewApp");
-            stg.setScene(scene);
-            stg.show();
+            Parent root = FXMLLoader.load(getClass().getResource("Sign-in.fxml"));
+            primaryStage.setTitle("WhereItGoes");
+            primaryStage.setScene(new Scene(root, 520, 400));
+            primaryStage.show();
+            primaryStage.setResizable(false);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
-    public void showHomeScene(){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Sign-in.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-            HomePage home = new HomePage();
-            home.populationPieChart();
-            stg.setTitle("NewApp");
-            stg.setScene(scene);
-            stg.show();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
-
-
-
     public static void main(String[] args) {
         launch();
     }

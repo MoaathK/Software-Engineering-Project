@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="411.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test123.ShowExpense">
+   <children>
+      <Label alignment="CENTER" layoutY="-5.0" prefHeight="81.0" prefWidth="520.0" style="-fx-background-color: #233AD1;" text="History" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutX="1.0" layoutY="116.0" prefHeight="226.0" prefWidth="520.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </ScrollPane>
+      <Label alignment="CENTER" layoutX="38.0" layoutY="94.0" prefHeight="17.0" prefWidth="47.0" text="Date" textFill="#002fff">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="220.0" layoutY="94.0" prefHeight="17.0" prefWidth="76.0" text="Category" textFill="#002fff">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="423.0" layoutY="94.0" prefHeight="17.0" prefWidth="47.0" text="Amount" textFill="#002fff">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button layoutX="217.0" layoutY="356.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="81.0" style="-fx-background-color: #233AD1;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
