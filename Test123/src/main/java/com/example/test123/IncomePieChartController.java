@@ -18,8 +18,8 @@ import java.util.ResourceBundle;
 
 public class IncomePieChartController  implements Initializable {
     private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/userInformation";
-    private static final String DATABASE_USER = "";
-    private static final String DATABASE_PASSWORD = " ";
+    private static final String DATABASE_USER = "postgres";
+    private static final String DATABASE_PASSWORD = "m=0552564107";
     @FXML
     public PieChart pieChart;
     Stage stage;

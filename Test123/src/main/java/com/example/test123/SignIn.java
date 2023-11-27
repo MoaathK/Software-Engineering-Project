@@ -17,9 +17,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SignIn {
-    private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/userInformation";
-    private static final String DATABASE_USER = "";
-    private static final String DATABASE_PASSWORD = " ";
+    private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/WhereItGoesDB";
+    private static final String DATABASE_USER = "postgres";
+    private static final String DATABASE_PASSWORD = "m=0552564107";
     static int id;
     @FXML
     private Label refmsgLable;
@@ -91,7 +91,7 @@ public class SignIn {
         ResultSet resultSet = null; // For storing query's result
 
         try {
-            psCheckUser = connection.prepareStatement("SELECT * FROM expense_tracker.register WHERE username = ?");
+            psCheckUser = connection.prepareStatement("SELECT * FROM public.register WHERE username = ?");// Table Called = expense_tracker.register // Column Username, password
             psCheckUser.setString(1, username);
             resultSet = psCheckUser.executeQuery();
 
@@ -101,7 +101,7 @@ public class SignIn {
                 alert.setContentText("You cannot use this usename");
                 alert.show();
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO expense_tracker.register (username,password) VALUES (?,?)");
+                psInsert = connection.prepareStatement("INSERT INTO public.register  (username,password) VALUES (?,?)");// insert a new UserName
                 psInsert.setString(1, username);
                 psInsert.setString(2, password);
                 psInsert.executeUpdate();
@@ -137,7 +137,7 @@ public class SignIn {
             ResultSet resultSet = null;
 
             try {
-                psCheckUser = connection.prepareStatement("SELECT * FROM expense_tracker.register WHERE username = ? and password = ?");
+                psCheckUser = connection.prepareStatement("SELECT * FROM public.register  WHERE username = ? and password = ?");
                 psCheckUser.setString(1, username);
                 psCheckUser.setString(2, password);
                 resultSet = psCheckUser.executeQuery();

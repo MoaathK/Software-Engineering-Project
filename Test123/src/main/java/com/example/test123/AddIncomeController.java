@@ -21,8 +21,8 @@ import java.util.ResourceBundle;
 
 public class AddIncomeController implements Initializable {
     private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/userInformation";
-    private static final String DATABASE_USER = "";
-    private static final String DATABASE_PASSWORD = " ";
+    private static final String DATABASE_USER = "postgres";
+    private static final String DATABASE_PASSWORD = "m=0552564107";
 
     @FXML
     private TextField incomeAmount;
@@ -42,7 +42,7 @@ public class AddIncomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        incomeCategory.setItems(FXCollections.observableArrayList("",""));
+        incomeCategory.setItems(FXCollections.observableArrayList("",""));// the category will be put here
 
     }
     Connection connection = null;
@@ -68,10 +68,11 @@ public class AddIncomeController implements Initializable {
                 alert.show();
             }
             else{
+                // Type =2 mean it is an Income
                 addData(e, 2, Integer.parseInt(incomeAmount.getText()), incomeCategory.getValue(), incomeDate.getValue(), SignIn.id);
                 // For changing scene to the main page
                 try {
-                    root = FXMLLoader.load(getClass().getResource("main.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
                     stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);
@@ -114,7 +115,7 @@ public class AddIncomeController implements Initializable {
     }
     public void i_cancelOnAction(ActionEvent e) throws Exception {
         try {
-            root = FXMLLoader.load(getClass().getResource("main.fxml"));
+            root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

@@ -24,8 +24,8 @@ import java.util.ResourceBundle;
 public class ExpenseController implements Initializable {
 
     private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/userInformation";
-    private static final String DATABASE_USER = "";
-    private static final String DATABASE_PASSWORD = " ";
+    private static final String DATABASE_USER = "postgres";
+    private static final String DATABASE_PASSWORD = "m=0552564107";
     Connection connection = null;
     public Connection connection(){
         try {
@@ -154,7 +154,7 @@ public class ExpenseController implements Initializable {
 
     public void chartButton(ActionEvent e){
         try {
-            root = FXMLLoader.load(getClass().getResource("E_pieCharT.fxml"));
+            root = FXMLLoader.load(getClass().getResource("expenseChart.fxml"));
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

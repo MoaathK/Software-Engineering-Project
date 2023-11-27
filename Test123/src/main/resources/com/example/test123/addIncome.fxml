@@ -32,7 +32,7 @@
       </Label>
       <TextField fx:id="incomeAmount" layoutX="199.0" layoutY="144.0" prefHeight="25.0" prefWidth="219.0" promptText="Riyals" />
       <ComboBox fx:id="incomeCategory" layoutX="199.0" layoutY="211.0" prefHeight="25.0" prefWidth="219.0" promptText="Select any category" />
-      <DatePicker fx:id="incomeDate" layoutX="196.0" layoutY="282.0" prefHeight="25.0" prefWidth="219.0" />
+      <DatePicker fx:id="incomeDate" layoutX="196.0" layoutY="282.0" onAction="#onIDateClicked" prefHeight="25.0" prefWidth="219.0" />
       <Button fx:id="incomeSave" layoutX="276.0" layoutY="346.0" mnemonicParsing="false" onAction="#i_saveButtonOnAction" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #233AD1;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />

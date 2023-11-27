@@ -21,8 +21,8 @@ import java.util.ResourceBundle;
 
 public class AddExpenseController implements Initializable {
     private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/userInformation";
-    private static final String DATABASE_USER = "";
-    private static final String DATABASE_PASSWORD = " ";
+    private static final String DATABASE_USER = "postgres";
+    private static final String DATABASE_PASSWORD = "m=0552564107";
 
     @FXML
     private TextField e_amount;
@@ -37,7 +37,8 @@ public class AddExpenseController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        e_category.setItems(FXCollections.observableArrayList("Food","Bills","Basic needs","Rent","Travel","Shopping","Entertainment","Others"));
+        // Need to change this below
+        e_category.setItems(FXCollections.observableArrayList("Food","Bills","Basic needs","Rent","Travel","Shopping","Entertainment","Others"));// need to change the Items
     }
     Connection connection = null;
     public Connection connection(){
@@ -86,6 +87,7 @@ public class AddExpenseController implements Initializable {
                 alert.show();
             }
             else{
+                // type = 1 mean it is an expense
                 addData(e, 1, Integer.parseInt(e_amount.getText()), e_category.getValue(), e_date.getValue(), SignIn.id);
                 try {
                     root = FXMLLoader.load(getClass().getResource("main.fxml"));
