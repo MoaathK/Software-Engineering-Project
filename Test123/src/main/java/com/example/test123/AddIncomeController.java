@@ -20,7 +20,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AddIncomeController implements Initializable {
-    private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/userInformation";
+    private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/WhereItGoesDB";
     private static final String DATABASE_USER = "postgres";
     private static final String DATABASE_PASSWORD = "m=0552564107";
 
@@ -42,7 +42,7 @@ public class AddIncomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        incomeCategory.setItems(FXCollections.observableArrayList("",""));// the category will be put here
+        incomeCategory.setItems(FXCollections.observableArrayList("Food","Grocery store","Education","Maintenance","Rent","Entertainment","Subscription","Loan","Travel"));// the category will be put here
 
     }
     Connection connection = null;
@@ -97,7 +97,7 @@ public class AddIncomeController implements Initializable {
         PreparedStatement psInsert=null;
 
         try {
-            psInsert = connection.prepareStatement("INSERT INTO expense_tracker.data (type,amount,category,date,userID) VALUES (?,?,?,?,?)");
+            psInsert = connection.prepareStatement("INSERT INTO public.data (type,amount,category,date,\"userID\") VALUES (?,?,?,?,?)");
             psInsert.setInt(1, type);
             psInsert.setInt(2, amount);
             psInsert.setString(3, category);

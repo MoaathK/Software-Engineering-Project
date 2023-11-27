@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 
 public class ExpensePieChartController implements Initializable {
 
-    private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/userInformation";
+    private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/WhereItGoesDB";
     private static final String DATABASE_USER = "postgres";
     private static final String DATABASE_PASSWORD = "m=0552564107";
 
@@ -54,9 +54,9 @@ public class ExpensePieChartController implements Initializable {
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
         connection = connection();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT userID,category,SUM(amount) as amount FROM expense_tracker.data\n" +
-                    "where type=\"1\" and (category=\"Food\" or  category=\"Bills\" or category=\"Basic needs\" or category=\"Rent\" or category=\"Travel\" or category=\"Shopping\" or category=\"Entertainment\" or  category=\"Others\")\n" +
-                    "GROUP BY userID,category;");
+            PreparedStatement statement = connection.prepareStatement("SELECT \"userID\",category,SUM(amount) as amount FROM public.data\n" +
+                    "where type=\"1\" and (category=\"Food\" or category=\"Grocery store\" or category=\"Education\" or category=\"Maintenance\" or category=\"Rent\" or  category=\"Entertainment\" or category=\"Subscription\" or category=\"Loan\" or category=\"Travel\" )\n" +
+                    "GROUP BY \"userID\",category;");
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {

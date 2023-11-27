@@ -62,7 +62,7 @@ public class SignIn {
     public void regButtonOnAction(ActionEvent e) {
         if (!s_usernameField.getText().trim().isEmpty() && !s_passwordField.getText().trim().isEmpty())
         {
-            registerUser(e, s_passwordField.getText(), s_passwordField.getText());
+            registerUser(e, s_usernameField.getText(), s_passwordField.getText());
         }
         else {
             System.out.println("Please fill in all information!");
@@ -149,16 +149,14 @@ public class SignIn {
                     alert.show();
                     SignIn.id = resultSet.getInt("userID");
                     //Changing scene to main page
-                    try {
+
                         root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
                         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                         scene = new Scene(root);
                         stage.setScene(scene);
                         stage.show();
-                    }
-                    catch (Exception ex) {
-                        System.out.println("Can't load");
-                    }
+
+
                 }
                 else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);

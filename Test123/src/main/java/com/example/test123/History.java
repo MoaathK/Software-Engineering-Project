@@ -8,7 +8,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -21,7 +23,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
-public class IncomeController implements Initializable {
+public class History implements Initializable {
     private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/WhereItGoesDB";
     private static final String DATABASE_USER = "postgres";
     private static final String DATABASE_PASSWORD = "m=0552564107";
@@ -40,75 +42,28 @@ public class IncomeController implements Initializable {
     @FXML
     private ScrollPane historyScroll;
     @FXML
-    private RadioButton incomeTodayRadio;
-    @FXML
-    private RadioButton incomeWeekRadio;
-    @FXML
-    private RadioButton incomeMonthRadio;
-    @FXML
-    private RadioButton incomeAllRadio;
-    @FXML
-    private Button incomeBackButton;
-    @FXML
-    private Label incomeTotal;
-
+    private Button historyBackButton;
     Stage stage;
     Scene scene;
     Parent root;
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            ToggleGroup tGroup=new ToggleGroup();
-            incomeTodayRadio.setToggleGroup(tGroup);
-            incomeWeekRadio.setToggleGroup(tGroup);
-            incomeMonthRadio.setToggleGroup(tGroup);
-            incomeAllRadio.setToggleGroup(tGroup);
-            incomeAllRadio.setSelected(true);
-            showIncome();
+            showHistory();
         } catch (Exception e) {
             System.out.println("Error");
         }
     }
-
-
-
-    public void showIncome() throws Exception{
-        VBox mainBox = new VBox();
+    public void showHistory() throws Exception{
+        var mainBox = new VBox();
         Font text = new Font("Verdana", 16);
         mainBox.setPrefWidth(598);
         mainBox.setSpacing(10);
         connection = connection();
-        ResultSet historySet;
-        int temp=0;
-
-        if(incomeTodayRadio.isSelected())
-        {
-            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 2 and date = CURRENT_DATE()");
-            getHistory.setInt(5, SignIn.id);
-            historySet = getHistory.executeQuery();
-        }
-        else if(incomeWeekRadio.isSelected())
-        {
-            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 2 and date> CURRENT_DATE() - INTERVAL 7 day order by date desc");
-            getHistory.setInt(5, SignIn.id);
-            historySet = getHistory.executeQuery();
-        }
-        else if(incomeMonthRadio.isSelected())
-        {
-            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 2 and date> CURRENT_DATE() - INTERVAL 30 day order by date desc");
-            getHistory.setInt(5, SignIn.id);
-            historySet = getHistory.executeQuery();
-        }
-        else
-        {
-            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 2 order by date desc");
-            getHistory.setInt(5, SignIn.id);
-            historySet = getHistory.executeQuery();
-        }
-
+        PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? order by date desc");
+        getHistory.setInt(5, SignIn.id);
+        ResultSet historySet = getHistory.executeQuery();
         while(historySet.next())
         {
             AnchorPane gp = new AnchorPane();
@@ -129,35 +84,28 @@ public class IncomeController implements Initializable {
             dateLabel.setMinHeight(40);
             categoryLabel.setMinHeight(40);
             amountLabel.setMinHeight(40);
-            temp = temp + Integer.parseInt(amountLabel.getText());
+            if(historySet.getInt("type")==1){
+                dateLabel.setStyle("-fx-text-fill: red");
+                categoryLabel.setStyle("-fx-text-fill: red");
+                amountLabel.setStyle("-fx-text-fill: red");
+            }
+            else{
+                dateLabel.setStyle("-fx-text-fill: green");
+                categoryLabel.setStyle("-fx-text-fill: green");
+                amountLabel.setStyle("-fx-text-fill: green");
+            }
 
-            dateLabel.setStyle("-fx-text-fill: green");
-            categoryLabel.setStyle("-fx-text-fill: green");
-            amountLabel.setStyle("-fx-text-fill: green");
             gp.setStyle("-fx-background-color: #cbdcf2");
             mainBox.getChildren().add(gp);
         }
 
-        incomeTotal.setText(temp+"");
+
         historyScroll.setContent(mainBox);
     }
 
-
-    public void incomeBackButton(ActionEvent e){
+    public void setHistoryBackButtonOnAction(ActionEvent e){
         try {
             root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-            stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception ex) {
-            System.out.println("Can't load");
-        }
-    }
-
-    public void chartButton(ActionEvent e){
-        try {
-            root = FXMLLoader.load(getClass().getResource("incomeChart.fxml"));
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

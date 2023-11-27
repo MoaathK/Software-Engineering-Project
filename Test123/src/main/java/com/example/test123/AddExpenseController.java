@@ -20,7 +20,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AddExpenseController implements Initializable {
-    private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/userInformation";
+    private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/WhereItGoesDB";
     private static final String DATABASE_USER = "postgres";
     private static final String DATABASE_PASSWORD = "m=0552564107";
 
@@ -38,7 +38,7 @@ public class AddExpenseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Need to change this below
-        e_category.setItems(FXCollections.observableArrayList("Food","Bills","Basic needs","Rent","Travel","Shopping","Entertainment","Others"));// need to change the Items
+        e_category.setItems(FXCollections.observableArrayList("Food","Grocery store","Education","Maintenance","Rent","Entertainment","Subscription","Loan","Travel"));// need to change the Items
     }
     Connection connection = null;
     public Connection connection(){
@@ -58,12 +58,11 @@ public class AddExpenseController implements Initializable {
         PreparedStatement psInsert=null;
 
         try {
-            psInsert = connection.prepareStatement("INSERT INTO expense_tracker.data (type,amount,category,date,userID) VALUES (?,?,?,?,?)");
+            psInsert = connection.prepareStatement("INSERT INTO public.data (type,amount,category,date) VALUES (?,?,?,?)");
             psInsert.setInt(1, type);
             psInsert.setInt(2, amount);
             psInsert.setString(3, category);
             psInsert.setString(4, date+"");
-            psInsert.setInt(5, userID);
             psInsert.executeUpdate();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Your data added successfully");
@@ -90,7 +89,7 @@ public class AddExpenseController implements Initializable {
                 // type = 1 mean it is an expense
                 addData(e, 1, Integer.parseInt(e_amount.getText()), e_category.getValue(), e_date.getValue(), SignIn.id);
                 try {
-                    root = FXMLLoader.load(getClass().getResource("main.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("HomaPage.fxml"));
                     stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);

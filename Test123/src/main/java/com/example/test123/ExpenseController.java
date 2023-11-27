@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,7 +24,7 @@ import java.util.ResourceBundle;
 
 public class ExpenseController implements Initializable {
 
-    private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/userInformation";
+    private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/WhereItGoesDB";
     private static final String DATABASE_USER = "postgres";
     private static final String DATABASE_PASSWORD = "m=0552564107";
     Connection connection = null;
@@ -84,26 +85,26 @@ public class ExpenseController implements Initializable {
 
         if(expenseTodayRadio.isSelected())
         {
-            PreparedStatement getHistory = connection.prepareStatement("SELECT * from expense_tracker.data where userID = ? and type = 1 and date = CURRENT_DATE()");
-            getHistory.setInt(1, SignIn.id);
+            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 1 and date = CURRENT_DATE()");
+            getHistory.setInt(5, SignIn.id);
             historySet = getHistory.executeQuery();
         }
         else if(expenseWeekRadio.isSelected())
         {
-            PreparedStatement getHistory = connection.prepareStatement("SELECT * from expense_tracker.data where userID = ? and type = 1 and date> CURRENT_DATE() - INTERVAL 7 day order by date desc");
-            getHistory.setInt(1, SignIn.id);
+            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 1 and date> CURRENT_DATE() - INTERVAL 7 day order by date desc");
+            getHistory.setInt(5, SignIn.id);
             historySet = getHistory.executeQuery();
         }
         else if(expenseMonthRadio.isSelected())
         {
-            PreparedStatement getHistory = connection.prepareStatement("SELECT * from expense_tracker.data where userID = ? and type = 1 and date> CURRENT_DATE() - INTERVAL 30 day order by date desc");
-            getHistory.setInt(1, SignIn.id);
+            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 1 and date> CURRENT_DATE() - INTERVAL 30 day order by date desc");
+            getHistory.setInt(5, SignIn.id);
             historySet = getHistory.executeQuery();
         }
         else
         {
-            PreparedStatement getHistory = connection.prepareStatement("SELECT * from expense_tracker.data where userID = ? and type = 1 order by date desc");
-            getHistory.setInt(1, SignIn.id);
+            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 1 order by date desc");
+            getHistory.setInt(5, SignIn.id);
             historySet = getHistory.executeQuery();
         }
 
@@ -142,6 +143,15 @@ public class ExpenseController implements Initializable {
 
     public void expenseBackOnAction(ActionEvent e){
         try {
+            this.root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+            stage = (Stage) ( (Node) e.getSource()).getScene().getWindow();
+            scene = new Scene(this.root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception ex) {
+            System.out.println("Can't load");
+        }
+       /* try {
             root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -149,7 +159,7 @@ public class ExpenseController implements Initializable {
             stage.show();
         } catch (Exception ex) {
             System.out.println("Can't load");
-        }
+        }*/
     }
 
     public void chartButton(ActionEvent e){
