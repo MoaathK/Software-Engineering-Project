@@ -7,22 +7,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="411.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test123.ShowExpense">
+<AnchorPane prefHeight="411.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test123.IncomeController">
    <children>
       <Label alignment="CENTER" layoutY="-5.0" prefHeight="81.0" prefWidth="520.0" style="-fx-background-color: #233AD1;" text="Income" textFill="WHITE">
          <font>
             <Font name="System Bold" size="33.0" />
          </font>
       </Label>
-      <ScrollPane layoutX="1.0" layoutY="145.0" prefHeight="197.0" prefWidth="520.0">
+      <ScrollPane fx:id="historyScroll" layoutX="1.0" layoutY="145.0" prefHeight="197.0" prefWidth="520.0">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
          </content>
       </ScrollPane>
-      <RadioButton layoutX="42.0" layoutY="90.0" mnemonicParsing="false" text="Today" />
-      <RadioButton layoutX="171.0" layoutY="90.0" mnemonicParsing="false" text="This Week" />
-      <RadioButton layoutX="307.0" layoutY="90.0" mnemonicParsing="false" text="This Month" />
-      <RadioButton layoutX="454.0" layoutY="90.0" mnemonicParsing="false" text="All" />
+      <RadioButton fx:id="incomeTodayRadio" layoutX="42.0" layoutY="90.0" mnemonicParsing="false" text="Today" />
+      <RadioButton fx:id="incomeWeekRadio" layoutX="171.0" layoutY="90.0" mnemonicParsing="false" text="This Week" />
+      <RadioButton fx:id="incomeMonthRadio" layoutX="307.0" layoutY="90.0" mnemonicParsing="false" text="This Month" />
+      <RadioButton fx:id="incomeAllRadio" layoutX="454.0" layoutY="90.0" mnemonicParsing="false" text="All" />
       <Label alignment="CENTER" layoutX="61.0" layoutY="128.0" prefHeight="17.0" prefWidth="47.0" text="Date" textFill="#002fff">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -38,12 +38,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button layoutX="56.0" layoutY="356.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="81.0" style="-fx-background-color: #958BB6;" text="Chart" textFill="WHITE">
+      <Button layoutX="56.0" layoutY="356.0" mnemonicParsing="false" onAction="#chartButton" prefHeight="30.0" prefWidth="81.0" style="-fx-background-color: #958BB6;" text="Chart" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="217.0" layoutY="356.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="81.0" style="-fx-background-color: #233AD1;" text="Back" textFill="WHITE">
+      <Button fx:id="incomeBackButton" layoutX="217.0" layoutY="356.0" mnemonicParsing="false" onAction="#incomeBackButton" prefHeight="30.0" prefWidth="81.0" style="-fx-background-color: #233AD1;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -53,7 +53,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="438.0" layoutY="348.0" textFill="GREEN">
+      <Label fx:id="incomeTotal" layoutX="438.0" layoutY="348.0" textFill="GREEN">
          <font>
             <Font size="14.0" />
          </font>

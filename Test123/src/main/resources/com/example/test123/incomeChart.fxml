@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test123.IncomeChart">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test123.IncomePieChartController">
    <children>
       <Label alignment="CENTER" layoutX="-2.0" layoutY="-9.0" prefHeight="80.0" prefWidth="606.0" text="TRACK YOUR INCOME" textFill="#233ad1">
          <font>
@@ -17,10 +16,10 @@
       </Label>
       <Pane layoutX="32.0" layoutY="59.0" prefHeight="295.0" prefWidth="556.0">
          <children>
-            <PieChart prefHeight="295.0" prefWidth="556.0" />
+            <PieChart fx:id="pieChart" prefHeight="295.0" prefWidth="556.0" />
          </children>
       </Pane>
-      <Button layoutX="253.0" layoutY="361.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #233AD1;" text="Back" textFill="WHITE">
+      <Button layoutX="253.0" layoutY="361.0" mnemonicParsing="false" onAction="#incomeChartBackOnAction" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #233AD1;" text="Back" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
