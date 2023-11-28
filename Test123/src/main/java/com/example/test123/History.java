@@ -62,7 +62,7 @@ public class History implements Initializable {
         mainBox.setSpacing(10);
         connection = connection();
         PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? order by date desc");
-        getHistory.setInt(5, SignIn.id);
+        getHistory.setInt(1, SignIn.id);
         ResultSet historySet = getHistory.executeQuery();
         while(historySet.next())
         {

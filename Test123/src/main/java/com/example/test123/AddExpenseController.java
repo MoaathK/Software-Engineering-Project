@@ -58,11 +58,12 @@ public class AddExpenseController implements Initializable {
         PreparedStatement psInsert=null;
 
         try {
-            psInsert = connection.prepareStatement("INSERT INTO public.data (type,amount,category,date) VALUES (?,?,?,?)");
+            psInsert = connection.prepareStatement("INSERT INTO public.data (type,amount,category,date,\"userID\") VALUES (?,?,?,?,?)");
             psInsert.setInt(1, type);
             psInsert.setInt(2, amount);
             psInsert.setString(3, category);
             psInsert.setString(4, date+"");
+            psInsert.setInt(5,SignIn.id);
             psInsert.executeUpdate();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Your data added successfully");
@@ -89,7 +90,7 @@ public class AddExpenseController implements Initializable {
                 // type = 1 mean it is an expense
                 addData(e, 1, Integer.parseInt(e_amount.getText()), e_category.getValue(), e_date.getValue(), SignIn.id);
                 try {
-                    root = FXMLLoader.load(getClass().getResource("HomaPage.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
                     stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);

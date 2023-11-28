@@ -57,12 +57,11 @@ public class IncomePieChartController  implements Initializable {
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
         connection = connection();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT \"userID\",category,SUM(amount) as amount FROM public.data\n" +
-                    "where type=\"2\" and (category=\"Food\" or category=\"Grocery store\" or category=\"Education\" or category=\"Maintenance\" or category=\"Rent\" or  category=\"Entertainment\" or category=\"Subscription\" or category=\"Loan\" or category=\"Travel\" )\n" +
+            PreparedStatement statement = connection.prepareStatement("SELECT \"userID\",category,SUM(amount) as amount FROM public.data \n" +
+                    "where type=2 and (category='Food' or category='Grocery store' or category='Education' or category='Maintenance' or category='Rent' or  category='Entertainment' or category='Subscription' or category='Loan' or category='Travel' )\n" +
                     "GROUP BY \"userID\",category;");
 
             ResultSet resultSet = statement.executeQuery();
-
             while (resultSet.next()) {
                 String category = resultSet.getString("category");
                 double amount = resultSet.getDouble("amount");
