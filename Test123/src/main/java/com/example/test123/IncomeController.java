@@ -86,21 +86,21 @@ public class IncomeController implements Initializable {
 
         if(incomeTodayRadio.isSelected())
         {
-            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 2 and date = CURRENT_DATE()");
+            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 2 and CAST(date AS timestamp) = current_date");
             getHistory.setInt(1, SignIn.id);
             historySet = getHistory.executeQuery();
 
         }
         else if(incomeWeekRadio.isSelected())
         {
-            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 2 and date> CURRENT_DATE() - INTERVAL 7 day order by date desc");
+            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 2 and CAST(date AS timestamp) > current_date - INTERVAL '7 days'  order by date desc");
             getHistory.setInt(1, SignIn.id);
             historySet = getHistory.executeQuery();
 
         }
         else if(incomeMonthRadio.isSelected())
         {
-            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 2 and date> CURRENT_DATE() - INTERVAL 30 day order by date desc");
+            PreparedStatement getHistory = connection.prepareStatement("SELECT * from public.data where \"userID\" = ? and type = 2 and CAST(date AS timestamp) > current_date - INTERVAL '30 days'  order by date desc");
             getHistory.setInt(1, SignIn.id);
             historySet = getHistory.executeQuery();
 
