@@ -42,7 +42,7 @@ public class AddIncomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        incomeCategory.setItems(FXCollections.observableArrayList("Food","Grocery store","Education","Maintenance","Rent","Entertainment","Subscription","Loan","Travel"));// the category will be put here
+        incomeCategory.setItems(FXCollections.observableArrayList("Salary","Loan"));// the category will be put here
 
     }
     Connection connection = null;
