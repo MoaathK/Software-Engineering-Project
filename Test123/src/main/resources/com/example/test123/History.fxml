@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="411.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test123.History">
+<AnchorPane prefHeight="411.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="com.example.test123.History">
    <children>
       <Label alignment="CENTER" layoutY="-5.0" prefHeight="81.0" prefWidth="520.0" style="-fx-background-color: #233AD1;" text="History" textFill="WHITE">
          <font>

@@ -17,9 +17,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SignIn {
-    private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/WhereItGoesDB";
-    private static final String DATABASE_USER = "postgres";
-    private static final String DATABASE_PASSWORD = "m=0552564107";
+    private static final String DATABASE_URL = "jdbc:postgresql://localhost:/WhereItGoesDB";
+    private static final String DATABASE_USER = "";
+    private static final String DATABASE_PASSWORD = "";
     static int id;
     @FXML
     private Label refmsgLable;

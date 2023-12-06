@@ -18,9 +18,9 @@ import java.util.ResourceBundle;
 
 public class ExpensePieChartController implements Initializable {
 
-    private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/WhereItGoesDB";
-    private static final String DATABASE_USER = "postgres";
-    private static final String DATABASE_PASSWORD = "m=0552564107";
+    private static final String DATABASE_URL = "jdbc:postgresql://localhost:/WhereItGoesDB";
+    private static final String DATABASE_USER = "";
+    private static final String DATABASE_PASSWORD = "";
 
     @FXML
     private PieChart pieChart;
