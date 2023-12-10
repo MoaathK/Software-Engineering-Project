@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="com.example.test123.SignIn">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test123.SignIn">
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #233AD1;" BorderPane.alignment="CENTER">
          <children>
@@ -53,7 +53,7 @@
             <Button fx:id="loginButton" layoutX="182.0" layoutY="262.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="26.0" prefWidth="124.0" style="-fx-background-color: #233AD1;" text="Login" textFill="WHITE" />
             <Button fx:id="loginCancel" layoutX="25.0" layoutY="262.0" mnemonicParsing="false" onAction="#logincancelOnAction" prefHeight="26.0" prefWidth="124.0" style="-fx-background-color: #233AD1;" text="Cancel" textFill="WHITE" />
             <Label layoutX="92.0" layoutY="325.0" prefHeight="24.0" prefWidth="73.0" text="New user?" textFill="#0084f9" />
-            <Button fx:id="r_button" layoutX="165.0" layoutY="325.0" mnemonicParsing="false" onAction="#r_ButtonOnAction" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: transperent;" text="Signin" textFill="#0084f9" underline="true" />
+            <Button fx:id="r_button" layoutX="165.0" layoutY="325.0" mnemonicParsing="false" onAction="#r_ButtonOnAction" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: transperent;" text="SignUp" textFill="#0084f9" underline="true" />
          </children>
       </AnchorPane>
    </right>
