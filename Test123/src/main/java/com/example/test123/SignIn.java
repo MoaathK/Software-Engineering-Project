@@ -17,9 +17,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SignIn {
-    private static final String DATABASE_URL = "jdbc:postgresql://localhost:/WhereItGoesDB";
-    private static final String DATABASE_USER = "";
-    private static final String DATABASE_PASSWORD = "";
     static int id;
     @FXML
     private Label refmsgLable;
@@ -39,7 +36,7 @@ public class SignIn {
     Stage stage;
     Scene scene;
     Parent root;
-
+    Connection connection;
     public void logincancelOnAction(ActionEvent e){
         System.exit(0);
     }
@@ -60,32 +57,17 @@ public class SignIn {
     }
 
     public void regButtonOnAction(ActionEvent e) {
-        if (!s_usernameField.getText().trim().isEmpty() && !s_passwordField.getText().trim().isEmpty())
-        {
+        if (!s_usernameField.getText().trim().isEmpty() && !s_passwordField.getText().trim().isEmpty()) {
             registerUser(e, s_usernameField.getText(), s_passwordField.getText());
-        }
-        else {
+        } else {
             System.out.println("Please fill in all information!");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Please fill all information to register");
             alert.show();
         }
     }
-    Connection connection = null;
-    public Connection connection(){
-        try {
-            connection = DriverManager.getConnection(DATABASE_URL,DATABASE_USER,DATABASE_PASSWORD);
-            return connection;
-        }catch (Exception e){
-            e.printStackTrace();
-            return connection;
-        }
-
-    }
-
-
     public void registerUser(ActionEvent e, String username, String password) {
-        connection = connection();
+        connection = DBUtils.connection();
         PreparedStatement psInsert = null;
         PreparedStatement psCheckUser = null; // For checking if already this user exists or not
         ResultSet resultSet = null; // For storing query's result
@@ -109,7 +91,7 @@ public class SignIn {
                 alert.setContentText("You register successfully!!");
                 alert.show();
                 try {
-                    root = FXMLLoader.load(getClass().getResource("Sign-in.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("Login.fxml"));
                     stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);
@@ -132,7 +114,7 @@ public class SignIn {
             loginUser(e, l_usernameField.getText(), l_passwordField.getText());
         }
         public void loginUser(ActionEvent e, String username, String password) throws IOException{
-            connection = connection();
+            connection = DBUtils.connection();
             PreparedStatement psCheckUser = null;
             ResultSet resultSet = null;
 
